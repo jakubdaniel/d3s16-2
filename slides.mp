@@ -363,7 +363,15 @@ beginfig(22)
 endfig;
 
 beginfig(23)
-  label(btex $\begin{array}{l}\text{finite domain}\\\text{abstraction (values, function summaries, heap, \ldots)}\end{array}$ etex, (0, 0));
+  label(btex
+$
+\begin{array}{l}
+\text{problem of invariant checking generally undecidable}\\
+\text{decidable for finite state}\\
+\text{ic3 works for finite state, is complete}\\
+\text{apply abstraction (values, function summaries, heap, \ldots)}\\
+\end{array}
+$ etex, (0, 0));
   setbounds currentpicture to bbox(frame);
 endfig;
 
