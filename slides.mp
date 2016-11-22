@@ -130,6 +130,7 @@ beginfig(7)
   draw error;
   draw F1;
   draw F0;
+  label.top(btex \Huge\bf$\begin{array}{c}\text{up to}\\\text{2 steps}\end{array}$ etex, (0, 0)) withcolor darkblue;
   setbounds currentpicture to bbox(frame);
 endfig;
 
@@ -138,6 +139,7 @@ beginfig(8)
   draw F2;
   draw F1;
   draw F0;
+  label.top(btex \Huge\bf{3 steps} etex, (0, 2u)) withcolor darkblue;
   setbounds currentpicture to bbox(frame);
 endfig;
 
@@ -257,6 +259,10 @@ beginfig(15)
   drawarrow ((2.75u, 2.75u) {up} .. {right} (4u, 4u)
     cutbefore (fullcircle scaled (.5u + 3pt) shifted (2.75u, 2.75u))
     cutafter  (fullcircle scaled (.5u + 3pt) shifted (4u, 4u))) withpen pencircle scaled 2pt withcolor white;
+  drawarrow ((1.5u, 1.5u) {up} .. {right} (2.75u, 2.75u)
+    cutbefore (fullcircle scaled (.5u + 3pt) shifted (1.5u, 1.5u))
+    cutafter  (fullcircle scaled (.5u + 3pt) shifted (2.75u, 2.75u))) withpen pencircle scaled 2pt withcolor gray;
+  fill fullcircle scaled .5u shifted (1.5u, 1.5u) withcolor gray;
   fill fullcircle scaled .5u shifted (2.75u, 2.75u) withcolor darkblue;
   fill fullcircle scaled .5u shifted (4u, 4u) withcolor white;
   setbounds currentpicture to bbox(frame);
@@ -314,6 +320,10 @@ beginfig(18)
   drawarrow ((0, 0) -- (2.75u, 2.75u)
     cutbefore (fullcircle scaled (.5u + 3pt) shifted (0, 0))
     cutafter  (fullcircle scaled (.5u + 3pt) shifted (2.75u, 2.75u))) withpen pencircle scaled 2pt withcolor white dashed evenly;
+  drawarrow ((-.5u, 2.25u) {dir 30} .. {dir 0} (2.75u, 2.75u)
+    cutbefore (fullcircle scaled (.5u + 3pt) shifted (-.5u, 2.25u))
+    cutafter  (fullcircle scaled (.5u + 3pt) shifted (2.75u, 2.75u))) withpen pencircle scaled 2pt withcolor gray;
+  fill fullcircle scaled .5u shifted (-.5u, 2.25u) withcolor gray;
   fill fullcircle scaled .5u shifted (2.75u, 2.75u) withcolor darkblue;
   fill fullcircle scaled .5u shifted (4u, 4u) withcolor white;
   setbounds currentpicture to bbox(frame);
