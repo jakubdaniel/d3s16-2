@@ -87,7 +87,19 @@ for i=0 upto 4:
 endfor;
 
 beginfig(0)
-  label(btex \Large\bf{Precise Invariant Proving} etex, (0, 0));
+  % background
+  label(btex what is safety etex, (0, 5u));
+  label(btex there are other classes of properties (but we don't care now) etex, (0, 4u));
+  label(btex safety undecidable in general etex, (0, 3u));
+  label(btex model checking (explicit $\rightarrow$ symbolic) as a way to check properties etex, (0, 2u));
+  label(btex a bit different view: translate the problem into some well known domain for which we have advanced machinery  etex, (0, 1u));
+  label(btex sat/smt (usually the model checking procedure can be decomposed into a sequence of sat/smt queries) etex, (0, 0u));
+  label(btex trend: the advancements in sat/smt usually spark new directions in verification etex, (0, -1u));
+  label(btex when a naive sat solver searches for a satisfying assignment it may need to explore all $2^n$ possible assignments etex, (0, -2u));
+  label(btex focus on promising directions, give up as early as possible if the current direction is doomed etex, (0, -3u));
+  label(btex we could call it goal-directed search etex, (0, -4u));
+  label(btex similarly a naive model checker usually explores a vast state space systematically but rather blindly etex, (0, -5u));
+  label(btex sat solver searches for an assignment, model checker searches for a path to violate property etex, (0, -6u));
   setbounds currentpicture to bbox(frame);
 endfig;
 
@@ -96,37 +108,49 @@ beginfig(1)
 endfig;
 
 beginfig(2)
-  label(btex \Large\bf$\begin{array}{c}\text{Property Directed Reachability}\\\text{(PDR, aka IC3)}\end{array}$ etex, (0, 0));
+  % traditional model checking (explicit or symbolic)
+  %
+  % also, we might want to get a "proof" of safety (explicit model checking does not give us a convenient proof (that would be the explored state space which we would have to re-explore entirely to assess its completeness))
+  % a convenient proof should be small (inductive invariant is a nice example: 2 queries: 1st exclusion of err, 2nd inductivity)
   setbounds currentpicture to bbox(frame);
 endfig;
 
 beginfig(3)
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(4)
+  label(btex \Large\bf$\begin{array}{c}\text{Property Directed Reachability}\\\text{(PDR, aka IC3)}\end{array}$ etex, (0, 0));
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(5)
   draw statespace;
   label.llft(btex \Huge\textbf{state space} etex, urcorner(statespace) - (u, u)) withcolor white;
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(4)
+beginfig(6)
   draw statespace;
   draw property;
   label.urt(btex \Huge\textbf{property} etex, urcorner(property) - (u, u)) withcolor darkgreen;
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(5)
+beginfig(7)
   draw error;
   label.ulft(btex \Huge\textbf{bad} etex, ulcorner(property) - (u, u)) withcolor white;
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(6)
+beginfig(8)
   draw error;
   draw F0;
   label.urt(btex \Huge\textbf{initial} etex, urcorner(F0)) withcolor darkblue;
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(7)
+beginfig(9)
   draw error;
   draw F1;
   draw F0;
@@ -134,7 +158,9 @@ beginfig(7)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(8)
+filenametemplate "%c.mps";
+
+beginfig(10)
   draw error;
   draw F2;
   draw F1;
@@ -143,7 +169,7 @@ beginfig(8)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(9)
+beginfig(11)
   draw error;
   draw F3;
   draw F2;
@@ -152,15 +178,13 @@ beginfig(9)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-filenametemplate "%c.mps";
-
-beginfig(10)
+beginfig(12)
   draw error;
   draw F4;
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(11)
+beginfig(13)
   draw error;
   draw F4;
   ahlength := .3u;
@@ -174,7 +198,7 @@ beginfig(11)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(12)
+beginfig(14)
   draw error;
   draw F4;
   draw F3;
@@ -193,7 +217,7 @@ beginfig(12)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(13)
+beginfig(15)
   draw error;
   draw F4;
   draw F3;
@@ -228,7 +252,7 @@ beginfig(13)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(14)
+beginfig(16)
   draw error;
   draw F4;
   draw F3;
@@ -250,7 +274,7 @@ beginfig(14)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(15)
+beginfig(17)
   draw error;
   draw F4;
   draw F'3;
@@ -268,7 +292,7 @@ beginfig(15)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(16)
+beginfig(18)
   draw error;
   draw F4;
   draw F'3;
@@ -286,7 +310,7 @@ beginfig(16)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(17)
+beginfig(19)
   draw error;
   draw F4;
   draw F'3;
@@ -308,7 +332,7 @@ beginfig(17)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(18)
+beginfig(20)
   draw error;
   draw F4;
   draw F''3;
@@ -329,13 +353,13 @@ beginfig(18)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(19)
+beginfig(21)
   draw error;
   draw F'4;
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(20)
+beginfig(22)
   draw error;
   draw F'4;
   drawarrow (((2.75u, 2.75u) rotated 45) {dir 135} .. {dir 45} ((4u, 4u) rotated 45)
@@ -346,13 +370,13 @@ beginfig(20)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(21)
+beginfig(23)
   draw error;
   draw F''4;
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(22)
+beginfig(24)
   draw statespace;
   draw property;
   draw F''4;
@@ -362,16 +386,68 @@ beginfig(22)
   setbounds currentpicture to bbox(frame);
 endfig;
 
-beginfig(23)
+beginfig(25)
   label(btex
 $
 \begin{array}{l}
-\text{problem of invariant checking generally undecidable}\\
+\text{again: problem generally undecidable}\\
 \text{decidable for finite state}\\
 \text{ic3 works for finite state, is complete}\\
 \text{apply abstraction (values, function summaries, heap, \ldots)}\\
 \end{array}
 $ etex, (0, 0));
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(26)
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(27)
+  % zooming at the instructions
+  % what to do about function calls?
+  % summaries
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(28)
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(29)
+  % function summaries
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(30)
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(31)
+  % searching for inductive function summaries
+  label(btex modular invariant proving of recursive programs etex, (0, 0));
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(32)
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(33)
+  % domains
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(34)
+  % all of this works for any finite domain (may diverge for infinite state - to be expected in light of undecidability of the problem)
+  % linear interger arithmetic domain
+  % future: domains for capturing properties of data containers
+  setbounds currentpicture to bbox(frame);
+endfig;
+
+beginfig(35)
+  % conclusion: we are developing a verification tool called bacon that implements property directed symbolic model checking of safety properties including scheme for handling recursion via summaries, it also allows defining custom elementary domains and provides means of composing the domains (currently cross product with option of added custom constraints)
+  % about 3000 of mighty Haskell source lines
   setbounds currentpicture to bbox(frame);
 endfig;
 
